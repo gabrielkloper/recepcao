@@ -1,0 +1,55 @@
+.text-primary {
+    color: #16B2B7 !important;
+}
+
+.btn-primary {
+    background-color: #16B2B7;
+    border-color: #16B2B7;
+    
+}
+
+.btn-primary:hover,  .btn-primary:not(:disabled):not(.disabled):active {
+    opacity: 1;
+    background-color: #14B0B5;
+    border-color:     #16B2B7;
+
+}
+
+
+.btn.btn-outline-primary:hover {
+    background-color: #1b00ff;
+    border-color: #1b00ff;
+    color: white;
+
+}
+
+label {
+    font-family: 'Inter',sans-serif;
+}
+
+/* Menu */
+
+ div .brand-logo {
+    width: 200px;
+    height: 200px;
+    overflow: hidden; /* Faz o div não aumentar a altura por causa da imagem */
+} 
+
+img .dark-logo{
+    margin-left: 50%;
+    width: 100%;
+}
+
+.form-inline .form-check, input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
+    width: auto;
+    margin: auto;
+}
+
+.mt-20 {
+    margin-top: 80px;
+}
+
+button .entrada {
+    border: none;
+
+}
