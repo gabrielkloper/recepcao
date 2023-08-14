@@ -44,10 +44,5 @@ case 'chaves':
 }
 
     
-  
-
-// if ($res_baixar_chave->num_rows>0) {
-//     echo "ok";
-// }
 break;
 }

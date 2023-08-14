@@ -31,7 +31,7 @@ include("inc/header.php");
                             <div class="row pb-30">
                                 <div class="col-12">
 
-                                   <!-- <a class="text-center d-block" href="forgot-password.html">Esqueci minha senha</a> -->
+                                   
 
                                 </div>
                             </div>

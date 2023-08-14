@@ -8,16 +8,13 @@ $res = $conn->query($sql_listar_id_visitante);
 $row = $res->fetch_object();
 
 
-// $sql_listar_id_usuario = "SELECT * FROM login_usuario WHERE usuario=" . $_REQUEST["usuario"];
-// $res = $conn->query($sql_listar_id_usuario);
-// $row = $res->fetch_object();
-
 switch ($_REQUEST["acao"]) {
     case 'entrada':
 
         $idCliente    = $_REQUEST["id"];
         $data_entrada = time();
         $setor        = $_REQUEST["setor"];
+        $observacao        = $_REQUEST["observacao"];
         $totalchaves  = explode(',', substr($_REQUEST["totalchaves"], 0, -1));
         // $chaves       = serialize($_REQUEST["chave"]);
 
@@ -38,7 +35,7 @@ switch ($_REQUEST["acao"]) {
         if ($ultima_acao == 0) {
             $idUsuario = $_SESSION['id'];
 
-            $sql_entrada = "INSERT INTO tabela_horario (id_usuario, id_visitante, data_entrada, setor, stats) VALUES ('{$idUsuario}','{$idCliente}','{$data_entrada}', '{$setor}', 1)";
+            $sql_entrada = "INSERT INTO tabela_horario (id_usuario, id_visitante, data_entrada, setor, observacao, stats) VALUES ('{$idUsuario}','{$idCliente}','{$data_entrada}', '{$setor}', '{$observacao}', 1)";
             $res_entrada = $conn->query($sql_entrada);
 
             $id_entrada = mysqli_insert_id($conn);

@@ -34,7 +34,7 @@ include("inc/header.php");
             <?php
 
             @$pesquisa = $conn->real_escape_string($_POST['buscar']);
-            $sql_pesquisa = "SELECT * FROM tabela_visitante WHERE nome_visitante LIKE '%$pesquisa%' OR nome_social LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%' OR rg LIKE '%$pesquisa%'";
+            $sql_pesquisa = "SELECT * FROM tabela_visitante WHERE nome_visitante LIKE '%$pesquisa%' OR nome_social LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%' OR rg LIKE '%$pesquisa%' LIMIT 10";
             $res_pesquisa = $conn->query($sql_pesquisa);
             $qtd = $res_pesquisa->num_rows;
 
@@ -49,7 +49,7 @@ include("inc/header.php");
                             <th scope="col">Nome Social</th>
                             <th scope="col">CPF</th>
                             <th class="datatable-nosort" scope="col">Check In</th>
-                            <!--  <th class="datatable-nosort" scope="col">Check Out</th>-->
+                            
 
                             <?php
                             if ($_SESSION['perfil'] == 1 || $_SESSION['perfil'] ==2) {
@@ -59,7 +59,7 @@ include("inc/header.php");
                             <?php
                             }
                             ?>
-                            <!-- <th class="datatable-nosort" scope="col">Visitas</th> -->
+
                         </tr>
                     </thead>
                     <tbody>
@@ -91,12 +91,11 @@ include("inc/header.php");
 
 
 
-                                        <!-- <button type="button" class="btn btn-success botao-item" name="Entrada" data-item="<?= $dados['id'] ?>" >Entrada</button> -->
+                                        
                                         <a href="#" data-toggle="modal" data-target="#Medium-modal" class="btn btn-success botao-item" name="Entrada" data-item="<?= $dados['id'] ?>" data-foto="<?= $dados['foto'] ?>" data-nome="<?= $dados['nome_visitante'] ?>" data-nome-social="<?= $dados['nome_social']?>">Entrada</a>
 
 
-                                        <!--  -->
-
+                                        
                                         <!--MODAL DANDO PROBLEMA NA HORA DE SUBMETER NO DB -->
 
 
@@ -104,17 +103,7 @@ include("inc/header.php");
 
 
                                 </td>
-                                <!-- <td>
-                                    <div class='table-actions'>
-                                        <form method="post" action="salvar-horario.php?id=<?= $dados['id'] ?>">
-                                            <input type="hidden" name="acao" value="saida">
-
-                                            <button type="submit" class="btn btn-danger" name="Saida">Saída</button>
-                                        </form>
-                                         <a href="salvar-horario.php?id=<?= $dados['id'] ?>" data-color='#e95959'><i class="icon-copy fa fa-sign-out"></i></a>
-                                    </div>
-                                </td> -->
-
+                                
                                 <?php
                                 if ($_SESSION['perfil'] == 1 || $_SESSION['perfil'] == 2) {
                                 ?>
@@ -127,11 +116,6 @@ include("inc/header.php");
                                 <?php
                                 }
                                 ?>
-                                <!-- <td>
-                                    <div class='table-actions'>
-                                        <a href="historico-visitante.php?id=<?= $dados['id'] ?>" data-color='purple'><i class="bi bi-clock-history"></i></a>
-                                    </div>
-                                </td> -->
                             </tr>
 
 
@@ -186,8 +170,7 @@ include("inc/header.php");
                             </div>
                         </div>
                     </div>
-                    <!-- <input type="text" name="nome" id="item2">
-                    <input type="text" name="foto" id="item3"> -->
+                    
 
                     <!-- <img src="<?= $dados['foto'] ?>" alt="">
                     <h4>"<?= $dados['id'] ?>"</h4> -->
@@ -197,9 +180,15 @@ include("inc/header.php");
                         <select class="form-control" id="setor" name="setor" required>
                             <option value="">Escolha uma opção</option>
                             <option value="biblioteca">Biblioteca</option>
-                            <option value="teatro">Teatro</option>
-                            <option value="estudio">Estudio</option>
                             <option value="secec">SECEC</option>
+                            <option value="biblioteca infantil">Biblioteca Infantil</option>
+                            <option value="auditorio">Auditório</option>
+                            <option value="teatro">Teatro</option>
+                            <option value="estudio">Estúdio</option>
+                            <option value="proa">PROA</option>
+                            <option value="laboratorio 1">Laboratório 1</option>
+                            <option value="laboratorio 2">Laboratório 2</option>
+                            <option value="laboratorio 3">Laboratório 3</option>
                         </select>
                         <br>
 
@@ -225,12 +214,12 @@ include("inc/header.php");
                         </div>
 
                         <div class="row">
-                            <div class="col-md-8 col-sm-12">
-
+                            <div class="col-md-3 col-sm-12">
+                                <label for="observacao" class="mt-4">Observação:</label>
                             </div>
 
-                            <div class="col-md-3 col-sm-12">
-
+                            <div class="col-md-8 col-sm-12">
+                                <input type="text" name="observacao"  class="form-control mt-4">
                             </div>
 
 
@@ -257,12 +246,7 @@ include("inc/header.php");
     ?>
 
     <script>
-        // document.querySelector('.botao-item').addEventListener('click', function(){
-        //     // var x = this.dataset.item;
-        //     // document.querySelector('#item').value = x;
-        //     alert('vai');
-        // })
-
+        
         $(document).ready(function() {
             $('.botao-item').click(function() {
                 var x = $(this).data('item');

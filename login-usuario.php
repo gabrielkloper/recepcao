@@ -45,24 +45,10 @@
 $datahoje = date('d-m-Y', time()) . " 00:00";
 $timestamphoje = strtotime($datahoje);
 
-// $sql_mudar_status_visitante = "SELECT * FROM tabela_horario WHERE stats = 1";
-// $result4 = mysqli_query($conn, $sql_mudar_status_visitante);
 
-// while ($row4 = mysqli_fetch_assoc($result4)) {
-//     $id_visitante = $row4['id_visitante'];
-//     $data_entrada = $row4['data_entrada'];
-    
-   
-    // if ($data_entrada < $timestamphoje) {
         $sql_update_stats = "UPDATE tabela_horario SET stats = 0, data_saida ='" . $timestamphoje . "' WHERE stats = 1 and data_entrada<'".$timestamphoje."'"; 
         mysqli_query($conn, $sql_update_stats);
-        // if (mysqli_query($conn, $sql_update_stats)) {
-        //     echo "Cliente $id_visitante registrado como saído.";
-        // } else {
-        //     echo "Erro ao registrar saída do cliente $id_visitante";
-        // }
-    // }
-// }
+        
           
         header("Location: menu.php");
       }else {

@@ -128,13 +128,7 @@ $res_status_chave = $conn->query($sql_status_chave);
 
             </div>
 
-            <!-- <div class="pd-20 card-box mb-20 ">
-
-                 Button trigger modal 
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
-                    Chaves Ocupadas
-                </button>
-            </div> -->
+            
 
             <div class="card-box pb-10">
                 <div class="h5 pd-20 mb-0">Ultimos Check ins - Dia <?= date('d/m/Y', time()) ?></div>
@@ -150,7 +144,7 @@ $res_status_chave = $conn->query($sql_status_chave);
                             if ($_SESSION['perfil'] == 1) {
 
                             ?>
-                                <!-- <th class="datatable-nosort">Editar</th> -->
+                                
 
                             <?php
                             }
@@ -199,16 +193,7 @@ $res_status_chave = $conn->query($sql_status_chave);
                                 if ($_SESSION['perfil'] == 1) {
 
                                 ?>
-                                    <!-- <td>
-                                        <div class='table-actions'>
-                                            
-                                            <a href="?page=salvar-usuario&acao=excluir&id=<?php //$row->id 
-                                                                                            ?>" data-color='#e95959'><i class='icon-copy dw dw-delete-3'></i></a>
-                                            <a href="editar-visitante.php?id=<?php //$row->id 
-                                                                                ?>" data-color='#265ed7'><i class='icon-copy dw dw-edit2'></i></a>
-                                        </div>
-                                    </td> -->
-
+                                   
 
                             <?php
                                 }

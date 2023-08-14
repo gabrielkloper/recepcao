@@ -13,13 +13,6 @@ echo $url;
 ?>
 
 <?php
-// include("inc/conn.php");
 
-// for ($i=1; $i < 111; $i++) { 
-   
-//    $sql = "INSERT INTO tabela_chave (chave) VALUES ('{$i}')";
-    
-//         $res = $conn->query($sql);
-// }
 
 ?>

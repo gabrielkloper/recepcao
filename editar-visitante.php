@@ -65,7 +65,7 @@ $row = $res->fetch_object();
                     <div class="col-md-2 col-sm-12">
                         <div class="form-group">
                             <label>RG</label>
-                            <input name="rg" class="form-control" placeholder="" type="text" value="<?= $row->rg ?>" readonly required>
+                            <input name="rg" class="form-control" placeholder="" type="text" value="<?= $row->rg ?>" >
                         </div>
                     </div>
                 </div>
@@ -359,9 +359,7 @@ $row = $res->fetch_object();
             <table class="data-table table nowrap">
                 <thead>
                     <tr>
-                        <!-- <th class="datatable-nosort" scope="col">Nome</th> -->
-                        <!-- <th class="datatable-nosort" scope="col">Matricula</th> -->
-                        <!-- <th class="datatable-nosort" scope="col">Documento</th> -->
+                        
                         <th scope="col">Dia</th>
                         <th class="datatable-nosort" scope="col">Hora de Entrada</th>
                         <th class="datatable-nosort" scope="col">Hora de Saída</th>
@@ -378,13 +376,6 @@ $row = $res->fetch_object();
 
 
 
-                            <!-- <td>
-                                <?= $row['id'] ?>
-                            </td> -->
-
-                            <!-- <td>
-                                <?= $row['documento'] ?>
-                            </td> -->
 
                             <td data-sort="<?= $row['data_entrada'] ?>">
                                 <span class='badge badge-pill' data-bgcolor='#e7ebf5' data-color='#265ed7'>
@@ -427,9 +418,7 @@ $row = $res->fetch_object();
 
 
     <?php
-    // } else {
-    //     echo "<script>alert('Visitante ainda não possui histórico.');location.replace('buscar-visitante.php')</script>";
-    // }
+    
 
     include("inc/footer.php");
     ?>

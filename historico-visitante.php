@@ -51,9 +51,7 @@ $res = $conn->query($sql_listar_id);
             <table class="data-table table nowrap">
                 <thead>
                     <tr>
-                        <!-- <th class="datatable-nosort" scope="col">Nome</th> -->
-                        <!-- <th class="datatable-nosort" scope="col">Matricula</th> -->
-                        <!-- <th class="datatable-nosort" scope="col">Documento</th> -->
+                        
                         <th scope="col">Dia</th>
                         <th class="datatable-nosort" scope="col">Hora de Entrada</th>
                         <th class="datatable-nosort" scope="col">Hora de Saída</th>
@@ -70,13 +68,6 @@ $res = $conn->query($sql_listar_id);
 
 
 
-                            <!-- <td>
-                                <?= $row['id'] ?>
-                            </td> -->
-
-                            <!-- <td>
-                                <?= $row['documento'] ?>
-                            </td> -->
 
                             <td  data-sort="<?=$row['data_entrada']?>">
                                 <span class='badge badge-pill' data-bgcolor='#e7ebf5' data-color='#265ed7'>
@@ -120,9 +111,7 @@ $res = $conn->query($sql_listar_id);
 
 
     <?php
-                //} else {
-                  //  echo "<script>alert('Visitante ainda não possui histórico.');location.replace('buscar-visitante.php')</script>";
-               // }
+                
     include("inc/footer.php");
     ?>
 </body>

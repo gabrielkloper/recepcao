@@ -2,19 +2,7 @@
 include("inc/conn.php");
 include("inc/validar-sessao.php");
 
-// $_GET['id'];
 
-
-// // $_GET['acao'];
-
-// // if ( !isset($_GET['id']) && !is_numeric($_GET['id']) )  {
-// //     die('<script>location.replace("outrapagina.php")</script>');
-// // }
-
-/*
-1-
-2-
-*/
 function limpar_dados($valor)
 {
     $valor = trim($valor);
@@ -71,28 +59,7 @@ switch ($_REQUEST["acao"]) {
         $foto = $conn->real_escape_string($_POST["txtfoto"]);
         $data_cadastro = time();
 
-        // $imagem_foto = $_FILES['arquivo'];
-/*
-        echo $imagem_foto['tmp_name'] ."<br>";
-        echo $imagem_foto['name'] ."<br>";
-        echo $imagem_foto['size'] ."<br>";
-        echo $imagem_foto['type'] ."<br>";
-        echo $imagem_foto['error'] ."<br>";
-*/
-
-
-        // if(isset($_POST['arquivo'])){
-        //     $data = str_replace('data:image/png;base64,', '', $_POST['arquivo']);
-        //     $data = str_replace(' ', '+', $data);
-        //     $image = base64_decode($data);
-        //     $filename = time() . ".png";
-        //     file_put_contents("./arquivos-foto/" . $filename, $image);
-        //     echo "http://localhost/caminho/para/arquivos-foto/" . $filename;
-        //   }
-          
-        //   if ( move_uploaded_file($imagem_foto['tmp_name'],$pasta.$novonome) ) {
-        //     echo "subiu a foto";
-        // }
+        
 
         
         $telefone = limpar_dados($telefone);

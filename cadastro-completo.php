@@ -46,7 +46,7 @@ include("inc/header.php");
                     <div class="col-md-2 col-sm-12">
                         <div class="form-group">
                             <label>RG</label>
-                            <input name="rg" class="form-control" placeholder="" type="text" required>
+                            <input name="rg" class="form-control" placeholder="" type="text" >
                         </div>
                     </div>
                 </div>

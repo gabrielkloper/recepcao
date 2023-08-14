@@ -3,6 +3,7 @@
 include("inc/validar-sessao.php");
 include("inc/header.php");
 include("contar-usuario.php");
+include("contar-usuario-relatorio.php");
 
 if ($_SESSION['perfil'] == 0) {
     echo "<script>alert('Você não possui permissão de acesso a esta página!');
@@ -83,25 +84,6 @@ if ($_SESSION['perfil'] == 0) {
             </div>
 
 
-
-            <!-- <div class="pd-20 card-box mb-20 ">
-                <label for="dados-biblioteca">Dados Biblioteca</label>
-                <select name="relatorios" class="form-control">
-                    <option value="total">Total</option>
-                    <option value="janeiro">Janeiro</option>
-                    <option value="fevereiro">Fevereiro</option>
-                    <option value="marco">Março</option>
-                    <option value="abril">Abril</option>
-                    <option value="maio">Maio</option>
-                    <option value="junho">Junho</option>
-                    <option value="julho">Julho</option>
-                    <option value="agosto">Agosto</option>
-                    <option value="setembro">Setembro</option>
-                    <option value="outubro">Outubro</option>
-                    <option value="novembro">Novembro</option>
-                    <option value="dezembro">Dezembro</option>
-                </select>
-            </div> -->
 
 
 
