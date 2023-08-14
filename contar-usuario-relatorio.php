@@ -1,6 +1,6 @@
 <?php 
 
-include("inc/conn.php");
+// include("inc/conn.php");
 
 // SQL query to display row count
 // in building table
