@@ -59,7 +59,7 @@ $row = $res->fetch_object();
                     <div class="col-md-2 col-sm-12">
                         <div class="form-group">
                             <label>CPF</label>
-                            <input name="cpf" id="cpf" class="form-control" placeholder="" type="text" maxlength="20" value="<?= $row->cpf ?>" readonly required>
+                            <input name="cpf" id="cpf" class="form-control" placeholder="" type="text" maxlength="20" value="<?= $row->cpf ?>" required>
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-12">

@@ -6,17 +6,7 @@ include("inc/conn.php");
 // in building table
 
 
- //Total de cadastros
- $sql_total_cadastrados = "SELECT * from tabela_visitante";
- if ($result_total_c = mysqli_query($conn, $sql_total_cadastrados)) {
-     $rowcount_cadastros_total = mysqli_num_rows($result_total_c);
- }
 
- //Total de Visitantes
- $sql_total_visitas = "SELECT * FROM tabela_horario";
- if ($result_total_v = mysqli_query($conn, $sql_total_visitas)) {
-     $rowcount_visitas_total = mysqli_num_rows($result_total_v);
- }
 
 
 //SQL para listar os visitantes que estão dentro da biblioteca

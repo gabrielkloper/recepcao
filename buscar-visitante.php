@@ -34,7 +34,7 @@ include("inc/header.php");
             <?php
 
             @$pesquisa = $conn->real_escape_string($_POST['buscar']);
-            $sql_pesquisa = "SELECT * FROM tabela_visitante WHERE nome_visitante LIKE '%$pesquisa%' OR nome_social LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%' OR rg LIKE '%$pesquisa%' LIMIT 10";
+            $sql_pesquisa = "SELECT * FROM tabela_visitante WHERE nome_visitante LIKE '%$pesquisa%' OR cpf LIKE '$pesquisa%' LIMIT 10";
             $res_pesquisa = $conn->query($sql_pesquisa);
             $qtd = $res_pesquisa->num_rows;
 
@@ -70,6 +70,15 @@ include("inc/header.php");
 
                                 <td>
                                     <?= (empty($dados['nome_visitante']) ? "-" : $dados['nome_visitante']) ?>
+                                    <?php
+                                    $sql_pesquisa2 = "SELECT * FROM tabela_chave WHERE visitante =" . $dados['id'] ." AND status = 1";
+                                    $res_pesquisa2 = $conn->query($sql_pesquisa2);
+                                    if($res_pesquisa2->num_rows > 0){
+                                ?>
+                                   
+                                   <small style="color: red; font-weight: bold"> Atenção! Visitante não devolveu a chave do armário.</small>
+                                   
+                                <?php } ?>
                                 </td>
                                 <td>
                                     <?= (empty($dados['nome_social']) ? "-" : $dados['nome_social']) ?>
@@ -96,8 +105,6 @@ include("inc/header.php");
 
 
                                         
-                                        <!--MODAL DANDO PROBLEMA NA HORA DE SUBMETER NO DB -->
-
 
                                     <?php } ?>
 
@@ -172,8 +179,7 @@ include("inc/header.php");
                     </div>
                     
 
-                    <!-- <img src="<?= $dados['foto'] ?>" alt="">
-                    <h4>"<?= $dados['id'] ?>"</h4> -->
+                    
                     <div class="modal-body p-4">
 
                         <label for='setor'>Biblioteca Parque</label>
@@ -186,6 +192,7 @@ include("inc/header.php");
                             <option value="teatro">Teatro</option>
                             <option value="estudio">Estúdio</option>
                             <option value="proa">PROA</option>
+                            <option value="sala de danca">Sala de Dança</option>
                             <option value="laboratorio 1">Laboratório 1</option>
                             <option value="laboratorio 2">Laboratório 2</option>
                             <option value="laboratorio 3">Laboratório 3</option>
@@ -340,6 +347,9 @@ include("inc/header.php");
             });
         });
     </script>
+
+
+
 
 
 <script>

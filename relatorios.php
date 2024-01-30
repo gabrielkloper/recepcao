@@ -1,5 +1,5 @@
 <?php
-
+// ini_set('memory_limit', '-1');
 include("inc/validar-sessao.php");
 include("inc/header.php");
 include("contar-usuario.php");
@@ -97,10 +97,10 @@ if ($_SESSION['perfil'] == 0) {
                             <th class="data">Meses</th>
                             <th class="">Nº de Registros</th>
                             <th>Nº de Visitas</th>
-                            <th>Registros Masculinos</th>
+                            <!-- <th>Registros Masculinos</th>
                             <th>Registros Femininos</th>
                             <th>Visitas Masculinas</th>
-                            <th>Visitas Femininas</th>
+                            <th>Visitas Femininas</th> -->
                             <!-- <th class="">Faixa Etária</th> -->
                             <?php if ($_SESSION['perfil'] == 1) { ?>
                                 <!-- <th class="datatable-nosort">Editar</th> -->
@@ -130,7 +130,7 @@ if ($_SESSION['perfil'] == 0) {
 
                         $months = array("janeiro" => 31, "fevereiro" => 28, "março" => 31, "abril" => 30, "maio" => 31, "junho" => 30, "julho" => 31, "agosto" => 31, "setembro" => 30, "outubro" => 31, "novembro" => 30, "dezembro" => 31);
 
-                        $timestamp = strtotime('2023-01-01');
+                        $timestamp = strtotime('2024-01-01');
                         foreach ($months as $month => $days) {
                             // Total de visitantes cadastrados no mês
                             $start = $timestamp;
@@ -141,26 +141,26 @@ if ($_SESSION['perfil'] == 0) {
                             $rowcount2 = getCount($conn, "tabela_horario", "data_saida >= '$start' AND data_saida < '$end'");
 
                             // Total de visitantes masculinos cadastrados no mês
-                            $rowcount3 = getCount($conn, "tabela_visitante", "sexo = 'masculino' AND data_cadastro >= '$start' AND data_cadastro < '$end'");
+                           // $rowcount3 = getCount($conn, "tabela_visitante", "sexo = 'masculino' AND data_cadastro >= '$start' AND data_cadastro < '$end'");
 
                             // Total de visitantes femininos cadastrados no mês
-                            $rowcount4 = getCount($conn, "tabela_visitante", "sexo = 'feminino' AND data_cadastro >= '$start' AND data_cadastro < '$end'");
+                          //  $rowcount4 = getCount($conn, "tabela_visitante", "sexo = 'feminino' AND data_cadastro >= '$start' AND data_cadastro < '$end'");
 
                             // Total de visitas de homens no mês
-                            $sql_visitas_homens_mes = "SELECT COUNT(*) as total_visitas FROM tabela_visitante INNER JOIN tabela_horario ON tabela_visitante.id = tabela_horario.id_visitante WHERE tabela_visitante.sexo = 'masculino' AND tabela_horario.data_saida >= '$start' AND tabela_horario.data_saida < '$end' GROUP BY YEAR(tabela_horario.data_saida), MONTH(tabela_horario.data_saida)";
-                            $result_visitas_homens_mes = mysqli_query($conn, $sql_visitas_homens_mes);
-                            $total_visitas_homens_mes = 0;
-                            while ($row = mysqli_fetch_assoc($result_visitas_homens_mes)) {
-                                $total_visitas_homens_mes += $row['total_visitas'];
-                            }
+                            // $sql_visitas_homens_mes = "SELECT COUNT(*) as total_visitas FROM tabela_visitante INNER JOIN tabela_horario ON tabela_visitante.id = tabela_horario.id_visitante WHERE tabela_visitante.sexo = 'masculino' AND tabela_horario.data_saida >= '$start' AND tabela_horario.data_saida < '$end' GROUP BY YEAR(tabela_horario.data_saida), MONTH(tabela_horario.data_saida)";
+                            // $result_visitas_homens_mes = mysqli_query($conn, $sql_visitas_homens_mes);
+                            // $total_visitas_homens_mes = 0;
+                            // while ($row = mysqli_fetch_assoc($result_visitas_homens_mes)) {
+                            //     $total_visitas_homens_mes += $row['total_visitas'];
+                            // }
 
                             // Total de visitas de mulheres no mês
-                            $sql_visitas_mulheres_mes = "SELECT COUNT(*) as total_visitas FROM tabela_visitante INNER JOIN tabela_horario ON tabela_visitante.id = tabela_horario.id_visitante WHERE tabela_visitante.sexo = 'feminino' AND tabela_horario.data_saida >= '$start' AND tabela_horario.data_saida < '$end' GROUP BY YEAR(tabela_horario.data_saida), MONTH(tabela_horario.data_saida)";
-                            $result_visitas_mulheres_mes = mysqli_query($conn, $sql_visitas_mulheres_mes);
-                            $total_visitas_mulheres_mes = 0;
-                            while ($row = mysqli_fetch_assoc($result_visitas_mulheres_mes)) {
-                                $total_visitas_mulheres_mes += $row['total_visitas'];
-                            }
+                            // $sql_visitas_mulheres_mes = "SELECT COUNT(*) as total_visitas FROM tabela_visitante INNER JOIN tabela_horario ON tabela_visitante.id = tabela_horario.id_visitante WHERE tabela_visitante.sexo = 'feminino' AND tabela_horario.data_saida >= '$start' AND tabela_horario.data_saida < '$end' GROUP BY YEAR(tabela_horario.data_saida), MONTH(tabela_horario.data_saida)";
+                            // $result_visitas_mulheres_mes = mysqli_query($conn, $sql_visitas_mulheres_mes);
+                            // $total_visitas_mulheres_mes = 0;
+                            // while ($row = mysqli_fetch_assoc($result_visitas_mulheres_mes)) {
+                            //     $total_visitas_mulheres_mes += $row['total_visitas'];
+                            // }
 
 
                         ?>
@@ -168,10 +168,10 @@ if ($_SESSION['perfil'] == 0) {
                                 <td><?php echo ucfirst($month); ?></td>
                                 <td><?php echo $rowcount1; ?></td>
                                 <td><?php echo $rowcount2; ?></td>
-                                <td><?php echo $rowcount3; ?></td>
+                                <!-- <td><?php echo $rowcount3; ?></td>
                                 <td><?php echo $rowcount4; ?></td>
                                 <td><?php echo $total_visitas_homens_mes; ?></td>
-                                <td><?php echo $total_visitas_mulheres_mes; ?></td>
+                                <td><?php echo $total_visitas_mulheres_mes; ?></td> -->
                                 <!-- <td><?php echo $rowcount4; ?></td> -->
                             </tr>
                         <?php
@@ -181,10 +181,10 @@ if ($_SESSION['perfil'] == 0) {
                             <td><b>Total</td>
                             <td><?php echo $rowcount_cadastros_total; ?></td>
                             <td><?php echo $rowcount_visitas_total; ?></td>
-                            <td><?php echo $rowcount_total_h_c; ?></td>
+                            <!-- <td><?php echo $rowcount_total_h_c; ?></td>
                             <td><?php echo $rowcount_total_m_c; ?></td>
                             <td><?php echo $rowcount_result_visita_h_t; ?></td>
-                            <td><?php echo $rowcount_result_visita_m_t; ?></td>
+                            <td><?php echo $rowcount_result_visita_m_t; ?></td> -->
                             <!-- <td><?php echo $rowcount4; ?></td> -->
                         </tr>
                     </tbody>

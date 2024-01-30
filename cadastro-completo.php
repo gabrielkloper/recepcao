@@ -60,14 +60,14 @@ include("inc/header.php");
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group">
                             <label>Telefone</label>
-                            <input name="telefone" class="form-control" id="celular" placeholder="(21)99999-9999" type="tel" >
+                            <input name="telefone" class="form-control" id="celular" placeholder="(21)99999-9999" type="tel" required>
                         </div>
                     </div>
 
                     <div class="col-md-2 col-sm-12">
                         <div class="form-group">
                             <label>Data Nasc.</label>
-                            <input type="date" name="nascimento" id="nascimento" class="form-control" onchange="validarIdade()" required max="<?= date("Y-m-d",time()) ?>">
+                            <input type="date" name="nascimento" id="nascimento" class="form-control" onchange="validarIdade()"  max="<?= date("Y-m-d",time()) ?>">
 
 
                         </div>
@@ -75,7 +75,7 @@ include("inc/header.php");
                     <div class="col-md-2 col-sm-12">
                         <div class="form-group">
                             <label>Sexo</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="sexo" required>
+                            <select class="form-control" id="exampleFormControlSelect1" name="sexo" >
                                 <option value="">Escolha uma opção</option>
                                 <option value="masculino">Masculino</option>
                                 <option value="feminino">Feminino</option>
