@@ -21,10 +21,10 @@ case 'chaves':
     if ($totalchaves != '') {
 
     foreach ($totalchaves as $key => $value) {
-        $sql_saida_chave = "UPDATE entrada_chave set status=0,  data_saida = {$data_saida} WHERE id_chave = {$value}";
+        $sql_saida_chave = "UPDATE entrada_chave set status=0,  data_saida = {$data_saida} WHERE id_chave = '{$value}'";
         $conn->query($sql_saida_chave);
 
-        $sql_baixar_chave = "UPDATE tabela_chave SET status = 0, visitante='' WHERE chave = {$value} AND status = 1";
+        $sql_baixar_chave = "UPDATE tabela_chave SET status = 0, visitante='' WHERE chave = '{$value}' AND status = 1";
         $res_baixar_chave = $conn->query($sql_baixar_chave);
     }
 }

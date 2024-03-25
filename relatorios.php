@@ -1,5 +1,5 @@
 <?php
-// ini_set('memory_limit', '-1');
+ini_set('memory_limit', '-1');
 include("inc/validar-sessao.php");
 include("inc/header.php");
 include("contar-usuario.php");
