@@ -2,7 +2,7 @@
 include("inc/validar-sessao.php");
 include("inc/conn.php");
 include("inc/header.php");
-
+set_time_limit(300);
 ?>
 
 
@@ -34,7 +34,7 @@ include("inc/header.php");
             <?php
 
             @$pesquisa = $conn->real_escape_string($_POST['buscar']);
-            $sql_pesquisa = "SELECT * FROM tabela_visitante WHERE nome_visitante LIKE '%$pesquisa%' OR cpf LIKE '$pesquisa%' LIMIT 10";
+            $sql_pesquisa = "SELECT id, nome_visitante, nome_social, cpf, foto FROM tabela_visitante WHERE nome_visitante LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%' LIMIT 10";
             $res_pesquisa = $conn->query($sql_pesquisa);
             $qtd = $res_pesquisa->num_rows;
 
